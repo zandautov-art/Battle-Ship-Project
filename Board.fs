@@ -58,7 +58,7 @@ type Board (int) =
         match states.[m - 1].[n-1] with
         |EmptySlot -> states.[m - 1].[n-1]<- Hit Ok ()
         |Marked -> 
-            states.[m - 1].[n-1]<- Hit
+            states.[m - 1].[n-1]<- Dead
             g <- g + 1
             Ok ()
         
