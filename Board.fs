@@ -3,14 +3,25 @@ namespace CS220
 /// Board represents a 3x3 game board.
 type Board (int, bool) =
 
-
   let mutable states = Array2D.create 6 6 EmptySlot
   let mutable g = 0
   member __.inc () =
     g <- g + 1 
   member __.Cell =
      g
-   
+  let mutable array = Array.create 36 (0,0)
+  for i in 0..5 do
+    for j in 0..5 do
+      array.[6*i+j] <- (i,j)
+  let mutable x = (0,0)
+  let mutable y = 0
+  for i in 0..35 do
+    y <- rnd.Next(i,36)
+    x <- array.[i]
+    array.[i] <- array.[y]
+    array.[y] <- x
+    
+    
   /// Fold slots.
   member __.Fold folder acc =
     states
