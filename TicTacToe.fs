@@ -21,15 +21,18 @@ type TicTacToe (player, computer, playerFirst, ai: AI) =
       let nextMove = gameinterface.ReadNextMove ()
       __.Move player nextMove
       if __.ShouldStop () then
-        board.PrintBoard ()
+        player.PrintBoard ()
+        opponent.PrintBoard ()
         winner
       else
         __.Move computer (ai.NextMove computer board)
-        board.PrintBoard ()
+        player.PrintBoard ()
+        opponent.PrintBoard ()
         if __.ShouldStop () then winner
         else loop ()
-    if playerFirst then () else __.Move computer (ai.NextMove computer board)
-    board.PrintBoard ()
+
+    player.PrintBoard ()
+    opponent.PrintBoard ()
     loop () |> function
       | None -> printfn "[*] Game ended in draw.\n"
       | Some w -> printfn "[*] %s won the game.\n" (Marker.toString w)
