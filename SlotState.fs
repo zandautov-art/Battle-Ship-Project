@@ -15,4 +15,9 @@ module SlotState =
     | Marked  -> " "
     |Hit -> "O"
     |Dead -> "X"
+  let toStringP = function
+    | EmptySlot -> " "
+    | Marked  -> "&"
+    |Hit -> "O"
+    |Dead -> "X"
 
