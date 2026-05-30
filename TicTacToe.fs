@@ -25,8 +25,9 @@ type TicTacToe (player, computer, playerFirst, ai: AI) =
         opponent.PrintBoard ()
         winner
       else
-        opponent.more ()
+        
         __.Move opponent opponent.Ar.[opponent.ste]
+        opponent.more ()
         player.PrintBoard ()
         opponent.PrintBoard ()
         if __.ShouldStop () then winner
