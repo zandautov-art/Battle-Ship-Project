@@ -1,14 +1,15 @@
 namespace CS220
 
 type TicTacToe (player, computer, playerFirst, ai: AI) =
-  let board = Board ()
-  let gameinterface = GameInterface (player, board)
+  let player = Board (6,true)
+  let oppponent = Board (6,false)
+  let gameinterface = GameInterface (player, opponent)
   let mutable winner = None
 
   member __.ShouldStop () =
-    match board.CheckWinner () with
+    match gameinterface.CheckWinner () with
     | Some w -> winner <- Some w; true
-    | None -> board.IsDraw ()
+    | None -> false
 
   member __.Move nextPlayer nextMove =
     match board.Mark nextMove nextPlayer with
