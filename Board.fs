@@ -8,8 +8,9 @@ type Board (int) =
   let mutable g = 0
   member __.inc () =
     g <- g + 1 
-  member __.d =
+  member __.Cell =
      g
+   
   /// Fold slots.
   member __.Fold folder acc =
     states
@@ -27,34 +28,40 @@ type Board (int) =
 
   /// Print out the board to console.
   member __.PrintBoard () =
-    let s1 = SlotState.toString states.[0]
-    let s2 = SlotState.toString states.[1]
-    let s3 = SlotState.toString states.[2]
-    let s4 = SlotState.toString states.[3]
-    let s5 = SlotState.toString states.[4]
-    let s6 = SlotState.toString states.[5]
-    let s7 = SlotState.toString states.[6]
-    let s8 = SlotState.toString states.[7]
-    let s9 = SlotState.toString states.[8]
-    printfn "+---+---+---+"
-    printfn "| %s | %s | %s |" s1 s2 s3
-    printfn "+---+---+---+"
-    printfn "| %s | %s | %s |" s4 s5 s6
-    printfn "+---+---+---+"
-    printfn "| %s | %s | %s |" s7 s8 s9
-    printfn "+---+---+---+"
+    let s =
+        states
+        |> Array.map (Array.map SlotState.toString)
+    printfn "+---+---+---+---+---+---+"
+    printfn "| %s | %s | %s | %s | %s | %s |" s.[0].[0] s.[0].[1] s.[0].[2] s.[0].[3] s.[0].[4] s.[0].[5]
+    printfn "+---+---+---+---+---+---+"
+    printfn "| %s | %s | %s | %s | %s | %s |" s.[1].[0] s.[1].[1] s.[1].[2] s.[1].[3] s.[1].[4] s.[1].[5]
+    printfn "+---+---+---+---+---+---+"
+    printfn "| %s | %s | %s | %s | %s | %s |" s.[2].[0] s.[2].[1] s.[2].[2] s.[2].[3] s.[2].[4] s.[2].[5]
+    printfn "+---+---+---+---+---+---+"
+    printfn "| %s | %s | %s | %s | %s | %s |" s.[3].[0] s.[3].[1] s.[3].[2] s.[3].[3] s.[3].[4] s.[3].[5]
+    printfn "+---+---+---+---+---+---+"
+    printfn "| %s | %s | %s | %s | %s | %s |" s.[4].[0] s.[4].[1] s.[4].[2] s.[4].[3] s.[4].[4] s.[4].[5]
+    printfn "+---+---+---+---+---+---+"
+    printfn "| %s | %s | %s | %s | %s | %s |" s.[5].[0] s.[5].[1] s.[5].[2] s.[5].[3] s.[5].[4] s.[5].[5]
+    printfn "+---+---+---+---+---+---+"
 
-  /// Is the specified slot occupied?
-  member __.IsOccupied num =
-    match states.[num - 1] with
-    | EmptySlot -> false
+  member __.IsOccupied (m: int,n: int) =
+    match states.[m-1].[n-1] with
+    | EmptySlot|Marked -> false
     | _ -> true
 
   /// Mark the given slot in the board. Returns "Error ()" when the slot is
   /// already occupied.
-  member __.Mark num marker =
+  member __.Mark (m,n) marker =
     if __.IsOccupied num then Error ()
-    else states.[num - 1] <- Marked marker; Ok ()
+    else 
+        match states.[m - 1].[n-1] with
+        |EmptySlot -> states.[m - 1].[n-1]<- Hit Ok ()
+        |Marked -> 
+            states.[m - 1].[n-1]<- Hit
+            g <- g + 1
+            Ok ()
+        
 
   /// Undo marking for the given slot.
   member __.Clear num =
