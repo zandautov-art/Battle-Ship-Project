@@ -72,8 +72,8 @@ type Board (int, bool) =
 
   /// Mark the given slot in the board. Returns "Error ()" when the slot is
   /// already occupied.
-  member __.Mark (m,n) marker =
-    if __.IsOccupied num then Error ()
+  member __.Mark (m,n) =
+    if __.IsOccupied (m,n) then Error ()
     else 
         match states.[m - 1].[n-1] with
         |EmptySlot -> states.[m - 1].[n-1]<- Hit Ok ()
