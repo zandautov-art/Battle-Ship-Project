@@ -12,7 +12,7 @@ type TicTacToe (player, computer, playerFirst, ai: AI) =
     | None -> false
 
   member __.Move nextPlayer nextMove =
-    match board.Mark nextMove nextPlayer with
+    match nextPlayer.Mark nextMove with
     | Ok () -> ()
     | Error () -> failwith "Fatal error"
 
@@ -25,7 +25,8 @@ type TicTacToe (player, computer, playerFirst, ai: AI) =
         opponent.PrintBoard ()
         winner
       else
-        __.Move computer (ai.NextMove computer board)
+        
+        __.Move opponent random
         player.PrintBoard ()
         opponent.PrintBoard ()
         if __.ShouldStop () then winner
