@@ -1,7 +1,7 @@
 namespace CS220
 
 /// Board represents a 3x3 game board.
-type Board (int) =
+type Board (int, bool) =
 
 
   let mutable states = Array2D.create 6 6 EmptySlot
@@ -28,22 +28,40 @@ type Board (int) =
 
   /// Print out the board to console.
   member __.PrintBoard () =
-    let s =
-        states
-        |> Array.map (Array.map SlotState.toString)
-    printfn "+---+---+---+---+---+---+"
-    printfn "| %s | %s | %s | %s | %s | %s |" s.[0].[0] s.[0].[1] s.[0].[2] s.[0].[3] s.[0].[4] s.[0].[5]
-    printfn "+---+---+---+---+---+---+"
-    printfn "| %s | %s | %s | %s | %s | %s |" s.[1].[0] s.[1].[1] s.[1].[2] s.[1].[3] s.[1].[4] s.[1].[5]
-    printfn "+---+---+---+---+---+---+"
-    printfn "| %s | %s | %s | %s | %s | %s |" s.[2].[0] s.[2].[1] s.[2].[2] s.[2].[3] s.[2].[4] s.[2].[5]
-    printfn "+---+---+---+---+---+---+"
-    printfn "| %s | %s | %s | %s | %s | %s |" s.[3].[0] s.[3].[1] s.[3].[2] s.[3].[3] s.[3].[4] s.[3].[5]
-    printfn "+---+---+---+---+---+---+"
-    printfn "| %s | %s | %s | %s | %s | %s |" s.[4].[0] s.[4].[1] s.[4].[2] s.[4].[3] s.[4].[4] s.[4].[5]
-    printfn "+---+---+---+---+---+---+"
-    printfn "| %s | %s | %s | %s | %s | %s |" s.[5].[0] s.[5].[1] s.[5].[2] s.[5].[3] s.[5].[4] s.[5].[5]
-    printfn "+---+---+---+---+---+---+"
+    if bool then
+        let s =
+          states
+          |> Array.map (Array.map SlotState.toStringP)
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[0].[0] s.[0].[1] s.[0].[2] s.[0].[3] s.[0].[4] s.[0].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[1].[0] s.[1].[1] s.[1].[2] s.[1].[3] s.[1].[4] s.[1].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[2].[0] s.[2].[1] s.[2].[2] s.[2].[3] s.[2].[4] s.[2].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[3].[0] s.[3].[1] s.[3].[2] s.[3].[3] s.[3].[4] s.[3].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[4].[0] s.[4].[1] s.[4].[2] s.[4].[3] s.[4].[4] s.[4].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[5].[0] s.[5].[1] s.[5].[2] s.[5].[3] s.[5].[4] s.[5].[5]
+          printfn "+---+---+---+---+---+---+"
+    else 
+      let s =
+          states
+          |> Array.map (Array.map SlotState.toString)
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[0].[0] s.[0].[1] s.[0].[2] s.[0].[3] s.[0].[4] s.[0].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[1].[0] s.[1].[1] s.[1].[2] s.[1].[3] s.[1].[4] s.[1].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[2].[0] s.[2].[1] s.[2].[2] s.[2].[3] s.[2].[4] s.[2].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[3].[0] s.[3].[1] s.[3].[2] s.[3].[3] s.[3].[4] s.[3].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[4].[0] s.[4].[1] s.[4].[2] s.[4].[3] s.[4].[4] s.[4].[5]
+          printfn "+---+---+---+---+---+---+"
+          printfn "| %s | %s | %s | %s | %s | %s |" s.[5].[0] s.[5].[1] s.[5].[2] s.[5].[3] s.[5].[4] s.[5].[5]
+          printfn "+---+---+---+---+---+---+"
 
   member __.IsOccupied (m: int,n: int) =
     match states.[m-1].[n-1] with
@@ -71,6 +89,4 @@ type Board (int) =
   member __.CheckWinner (): Marker option =
     BoardHelper.checkWinner states
 
-  /// Check if the game ended in draw.
-  member __.IsDraw (): bool =
-    BoardHelper.isDraw states
+
