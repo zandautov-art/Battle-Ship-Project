@@ -16,7 +16,9 @@ type Board (int, bool) =
     states
     |> Array.fold (fun (i, a) elt -> i + 1, folder i a elt) (1, acc)
     |> snd
-
+  member __.toString =
+    if bool then "player"
+    else "computer"
   /// Make a copy of the board (create a new one).
   member __.Copy () =
     let b = Board ()
