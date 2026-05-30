@@ -13,10 +13,12 @@ type GameInterface (player, opponent) =
         | _ -> None
 
   member __.ReadNextMove () =
-    printfn "Choose the next move for %s" <| Marker.toString player
+    printfn "Choose the next move for %s" <| player.toString
     Console.Write ("> ")
-    let idx = try Console.ReadLine () |> Convert.ToInt32 with _ -> -1
-    if idx >= 1 && idx <= 9 && not (this.p.IsOccupied idx) then idx
+    let idx = try Console.ReadLine () 
+    let a = int( string idx.[1]))
+    let b = int( string idx.[3]))
+    if a >= 1 && a <= 9 && b >= 1 && b <= 9 && not (this.p.IsOccupied idx) then (a, b)
     else Console.WriteLine ("\n[*] Invalid input is given.\n")
          __.ReadNextMove ()
   
