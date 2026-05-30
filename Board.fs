@@ -2,6 +2,7 @@ namespace CS220
 
 /// Board represents a 3x3 game board.
 type Board (int, bool) =
+  let rnd = System.Random()
 
   let mutable states = Array2D.create 6 6 EmptySlot
   let mutable g = 0
