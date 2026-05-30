@@ -27,6 +27,8 @@ type Board (int, bool) =
     x <- array.[i]
     array.[i] <- array.[y]
     array.[y] <- x
+  member __.Ar = 
+    array
     
     
   /// Fold slots.
