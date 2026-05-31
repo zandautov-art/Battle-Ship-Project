@@ -12,7 +12,7 @@ type GameInterface (player, opponent) =
         |(_,36) -> Some player
         | _ -> None
 
-  member __.ReadNextMove () =
+  member rec __.ReadNextMove () =
     printfn "Choose the next move for %s" <| player.toString
     Console.Write ("> ")
     let idx = try Console.ReadLine () 
