@@ -1,6 +1,6 @@
 namespace CS220
 
-type TicTacToe (player, computer, playerFirst, ai: AI) =
+type TicTacToe (int) =
   let player = Board (6,true)
   let opponent = Board (6,false)
   let gameinterface = GameInterface (player, opponent)
