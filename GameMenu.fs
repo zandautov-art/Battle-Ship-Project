@@ -4,9 +4,9 @@ open System
 
 /// Available options.
 type GameMenu =
-  | six
-  |seven
-  |eight
+  |Six
+  |Seven
+  |Eight
   |Exit
 
 module GameMenu =
@@ -18,8 +18,8 @@ module GameMenu =
     printfn "Exit"
     Console.Write "> " (* Show the prompt here. *)
     match Console.ReadLine () with
-    | "1" -> six
-    | "2" -> seven
-    | "3" -> eight
+    | "1" -> Six
+    | "2" -> Seven
+    | "3" -> Eight
     | "4" -> Exit
     | _ -> printfn "\n[*] Invalid order number.\n"; takeOrder ()
