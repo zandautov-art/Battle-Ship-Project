@@ -4,7 +4,15 @@ namespace CS220
 type Board (int, bool) =
   let rnd = System.Random()
   let mutable step = 0
-  let mutable states = Array2D.create 6 6 EmptySlot
+  let mutable states =
+    [|
+        [|EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot|]
+        [|EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot|]
+        [|EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot|]
+        [|EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot|]
+        [|EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot|]
+        [|EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot; EmptySlot|]
+    |]
   let mutable g = 0
   let array =
         let mutable arr = Array.create 36 (0,0)
@@ -40,7 +48,7 @@ type Board (int, bool) =
     if bool then
         let s =
           states
-          |> Array2D.map SlotState.toStringP
+          |> Array.map( Array.map SlotState.toStringP)
         printfn "+---+---+---+---+---+---+"
         printfn "| %s | %s | %s | %s | %s | %s |" s.[0].[0] s.[0].[1] s.[0].[2] s.[0].[3] s.[0].[4] s.[0].[5]
         printfn "+---+---+---+---+---+---+"
@@ -57,7 +65,7 @@ type Board (int, bool) =
     else 
       let s =
           states
-          |> Array2D.map SlotState.toString
+          |> Array.map( Array.map SlotState.toString)
       printfn "+---+---+---+---+---+---+"
       printfn "| %s | %s | %s | %s | %s | %s |" s.[0].[0] s.[0].[1] s.[0].[2] s.[0].[3] s.[0].[4] s.[0].[5]
       printfn "+---+---+---+---+---+---+"
