@@ -2,7 +2,7 @@ namespace CS220
 
 type TicTacToe (player, computer, playerFirst, ai: AI) =
   let player = Board (6,true)
-  let oppponent = Board (6,false)
+  let opponent = Board (6,false)
   let gameinterface = GameInterface (player, opponent)
   let mutable winner = None
 
