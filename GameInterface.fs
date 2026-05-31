@@ -4,10 +4,10 @@ open System
 
 /// Tic Tac Toe game interface.
 type GameInterface (player, opponent) =
-  member this.p = player
-  member this.o = opponent
+  member __.p = player
+  member __.o = opponent
   member __.CheckWinner () =
-      match (this.p.Cell, this.o.Cell) with 
+      match (__.p.Cell, __.o.Cell) with 
         |(36,_) -> Some opponent
         |(_,36) -> Some player
         | _ -> None
@@ -19,7 +19,7 @@ type GameInterface (player, opponent) =
     try
       let a = int( string idx.[1])
       let b = int( string idx.[3])
-      if a >= 1 && a <= 9 && b >= 1 && b <= 9 && not (this.p.IsOccupied (a,b)) then (a, b)
+      if a >= 1 && a <= 9 && b >= 1 && b <= 9 && not (__.p.IsOccupied (a,b)) then (a, b)
       else Console.WriteLine ("\n[*] Invalid input is given.\n")
            __.ReadNextMove ()
     with
