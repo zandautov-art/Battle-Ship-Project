@@ -5,13 +5,13 @@ let start = function
     TicTacToe(6).Run()
     true
   | seven ->
-    TicTacToe(O, X, false, RandomStrategy ()).Run()
+    TicTacToe(6).Run()
     true
   | Minima->
-    TicTacToe(O, X, true, MinimaxStrategy ()).Run()
+    TicTacToe(6).Run()
     true
   | MinimaxAIComputerFirst ->
-    TicTacToe(O, X, false, MinimaxStrategy ()).Run()
+    TicTacToe(6).Run()
     true
   | Exit -> false
 
