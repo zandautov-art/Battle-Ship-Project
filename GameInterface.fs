@@ -22,4 +22,7 @@ type GameInterface (player, opponent) =
       if a >= 1 && a <= 9 && b >= 1 && b <= 9 && not (this.p.IsOccupied (a,b)) then (a, b)
       else Console.WriteLine ("\n[*] Invalid input is given.\n")
            __.ReadNextMove ()
-  
+    with
+    | _ ->
+        printfn "\n[*] Invalid format.\n"
+        __.ReadNextMove()
