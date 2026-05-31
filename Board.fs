@@ -88,16 +88,15 @@ type Board (int, bool) =
     if __.IsOccupied (m,n) then Error ()
     else 
         match states.[m - 1].[n-1] with
-        |EmptySlot -> states.[m - 1].[n-1]<- Hit Ok ()
+        |EmptySlot -> 
+            states.[m - 1].[n-1]<- Hit 
+            Ok ()
         |Marked -> 
             states.[m - 1].[n-1]<- Dead
             g <- g + 1
             Ok ()
         
 
-  /// Undo marking for the given slot.
-  /// Check the winner.
-  member __.CheckWinner (): Marker option =
-    BoardHelper.checkWinner states
+  
 
 
