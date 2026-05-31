@@ -4,20 +4,11 @@ namespace CS220
 type Board (int, bool) =
   let rnd = System.Random()
   let mutable step = 0
-  member __.more () = 
-    step <- step + 1
-  member __.ste =
-    step
-    
-
   let mutable states = Array2D.create 6 6 EmptySlot
   let mutable g = 0
-  member __.inc () =
-    g <- g + 1 
-  member __.Cell =
-     g
   let array =
-        let mutable arr = Array.create 36 (0,0)
+  let mutable arr = 
+    `   Array.create 36 (0,0)
 
         for i in 0..5 do
             for j in 0..5 do
@@ -31,28 +22,21 @@ type Board (int, bool) =
 
         arr
 
+  
+  member __.more () = 
+    step <- step + 1
+  member __.ste =
+    step
+  member __.inc () =
+    g <- g + 1 
+  member __.Cell =
+     g
   member __.Ar = 
     array
     
-    
-  /// Fold slots.
-  member __.Fold folder acc =
-    states
-    |> Array.fold (fun (i, a) elt -> i + 1, folder i a elt) (1, acc)
-    |> snd
   member __.toString =
     if bool then "player"
     else "computer"
-  /// Make a copy of the board (create a new one).
-  member __.Copy () =
-    let b = Board ()
-    let update i = function
-      | Marked m -> b.Mark (i + 1) m |> ignore
-      | _ -> ()
-    states |> Array.iteri update
-    b
-
-  /// Print out the board to console.
   member __.PrintBoard () =
     if bool then
         let s =
@@ -93,9 +77,6 @@ type Board (int, bool) =
     match states.[m-1].[n-1] with
     | EmptySlot|Marked -> false
     | _ -> true
-
-  /// Mark the given slot in the board. Returns "Error ()" when the slot is
-  /// already occupied.
   member __.Mark (m,n) =
     if __.IsOccupied (m,n) then Error ()
     else 
@@ -108,9 +89,6 @@ type Board (int, bool) =
         
 
   /// Undo marking for the given slot.
-  member __.Clear num =
-    states.[num - 1] <- EmptySlot
-
   /// Check the winner.
   member __.CheckWinner (): Marker option =
     BoardHelper.checkWinner states
