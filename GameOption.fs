@@ -4,9 +4,9 @@ open System
 
 /// Available options.
 type GameOption =
-  | six
-  |seven
-  |eight
+  |Six
+  |Seven
+  |Eight
   |Exit
 module GameOption =
   let rec take () =
@@ -17,8 +17,8 @@ module GameOption =
     printfn "Exit"
     Console.Write "> " (* Show the prompt here. *)
     match Console.ReadLine () with
-    | "1" -> six
-    | "2" -> seven
-    | "3" -> eight
+    | "1" -> Six
+    | "2" -> Seven
+    | "3" -> Eight
     | "4" -> Exit
     | _ -> printfn "\n[*] Invalid option.\n"; take ()
