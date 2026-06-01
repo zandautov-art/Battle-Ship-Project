@@ -61,7 +61,8 @@ The placing of ships is done manually.
 To place an ship of length n
 first a player enters a coordingate of the leftmost/bottommost cell of the ships( it depends on whether the ship that player wants to place is vertical of horizontal) 
 The board  of size n by n has coordinates (x,y) where x, y are integers between 1 and n. The leftmost bottom cell is (1,1)
-To enter the coordinate it's  enough to enter "xy". The player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
+To enter the coordinate it's  enough to enter "xy". For example input "34" is valid while "(4,5)" is invalid.
+The player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
 The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
 if the input is invalid the program will ask to place a ship again. Otherwise the ship will be placed on board.
 
