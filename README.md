@@ -15,7 +15,7 @@ Each of the Two players have their own board.
 
 The two boards have fixed size( 6 by 6, 8 by 8 etc.) 
 
-Both players, secretly from each other, put their ship on their boards.
+Both players, secretly from each other, put ships on their own boards.
 The ships are rectangles 1 by n where n can be any integer.
 
 The length of the ship is determined by n
