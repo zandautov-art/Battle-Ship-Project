@@ -203,8 +203,8 @@ type Computer (s: int) =
       | 1 -> 
         gameinterface.Print (player, opponent)
         
-        printfn "[*] %s won the game!\n" ("computer" )
+        printfn "[*] YOU LOST!!!\n" 
       | _ -> 
         gameinterface.Print (player, opponent)
-        printfn "[*] %s won the game!\n" ("player" )
+        printfn "[*] YOU WON!!!\n" 
     

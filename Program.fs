@@ -8,11 +8,13 @@ let start = function
             printfn "1. 6x6"
             printfn "2. 7x7"
             printfn "3. 9x9"
+            printfn "4. Exit"
       
             match Console.ReadLine () with
             | "1" -> Computer(6).Run ()
             | "2" -> Computer(7).Run ()
             | "3" -> Computer(9).Run ()
+            | "4" -> ()
             | _ -> printfn "\n[*] Invalid option.\n"; tak ()
         tak()
         ()
@@ -23,11 +25,13 @@ let start = function
             printfn "1. 6x6"
             printfn "2. 7x7"
             printfn "3. 9x9"
-      
+            printfn "4. Exit"
+
             match Console.ReadLine () with
             | "1" -> Players(6).Run ()
             | "2" -> Players(7).Run ()
             | "3" -> Players(9).Run ()
+            | "4" -> () 
             | _ -> printfn "\n[*] Invalid option.\n"; tak ()
         tak()
         ()

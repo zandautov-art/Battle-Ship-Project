@@ -1,86 +1,71 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/w8SwzxHv)
-CS220 - HW6
-===
+THE BATTLESHIP GAME
 
-## Build?
+ZHAN DAUTOV: 20240947
 
-You can compile the project by typing `dotnet build`.
 
-## Test?
+Project Title: The Battleship game
 
-You can test your implementation by typing `dotnet test`. If you can pass
-all the tests, you should be good to commit and push your code.
+Overview: This project is a command-line battleship game where the
+user plays against an enemy. Each player has his own board with
+his ships. The goal is to destroy all ships on opponent's board.
 
-## Structure
 
-- `Program.fs`: The main entry point of the project.
-- `Tests/Tests.fs`: The test suite for the project.
-- `HomeworkX.fsproj`: The F# project file for the project, where `X` is the
-  homework number.
+Rules: The game is played by 2 people.
+Each of the Two players have their own board.
 
-## Problems
+The two boards have fixed size( 6 by 6, 8 by 8 etc.) 
 
-You should read the fsproj file and read the relevant source files to understand
-the problems. Typically, we will provide an empty (or partial) implementation
-for you to fill in where you can find some comments describing the problem. Of
-course, you can also read the relevant test cases to understand the problem.
+Both players, secretly from each other, put their ship on their boards.
+The ships are rectangles 1 by n where n can be any integer.
 
-## Submission
+The length of the ship is determined by n
 
-You are given a GitHub classroom link to start the assignment, which will
-automatically create a private repository for you. If your repository URL
-contains your GitHub username, then you are in the right place. If not, please
-get your own private repository from the GitHub classroom link.
+Depending on the size of the board the number of ships of each size is same and fixed for both player. However the placing of ships is under player's consideration. However the ships can't intersect.
 
-You should make modification to your own repository to finish your homework.
-Again, your own repository is only visible to you and the course staff. Plus,
-your repository URL should contain your GitHub username. You should commit and
-push your code to your own repository in order to get a grade.
 
-Whenever you push your code to your repository, the GitHub classroom workflow
-will automatically run the test cases and give you a grade based on the test
-results. You can check the test results by clicking the "Actions" tab in your
-repository page.
+After placing the ships, both players alternatively attack the opponent's board picking a cell and hitting it.
+If the cell belongs to the ship this cell is  destroyed, and the corresponding message is displayed. Otherwise this hit is considered a miss
 
-If you see a red cross in the "Actions" tab, it means that some of the test
-cases are failing. You should check the test results to understand why the test
-cases are failing. If you see a green check, it means that all the test cases
-are passing, and you should be good to go.
+The ships is destroyed only if all of its cells are destroyed.
 
-You can always make another commit to fix problems in your implementation, and
-push the changes to the repository. The GitHub classroom workflow will
-re-evaluate your implementation and update your grade.
+The one who destroys all opponents ships first is the winner.
 
-## Failure from the Workflow?
+In this projects there are two modes:
+Player vs Computer
+or 2 Player mode
+to pick "vs Computer" mode enter "1". For 2 Player mode enter "2".
+Also the sizes of the board available are  6 by6, 7 by 7 and 9 by 9
 
-Don't panic if you see a red cross in the "Actions" tab. You can always make
-another commit to fix problems in your implementation, and push the changes to
-the repository. The GitHub classroom workflow will re-evaluate your
-implementation and update your grade automatically.
+For 6 by 6 board each player places:
+	1 ship of length 3
+	2 ship of length 2
+	1 ship of length 1    
+	on their own board
 
-## Auto-Grading?
+For 7 by 7 board each player places:
+	1 ship of length 4
+	2 ship of length 3
+	1 ship of length 2    
+	on their own board
 
-Auto-grading is performed via the GitHub classroom workflow, which is defined in
-`.github/workflows/classroom.yml`. The workflow basically runs `dotnet test` to
-test your implementation and then gives you a grade based on the test results.
-If you can pass all the tests in your local environment, you should be able to
-get a full score.
+For 9 by 9 board each player places:
+	1 ship of length 4
+	2 ship of length 3
+	2 ship of length 2    
+	on their own board
 
-## Cheating Policy
 
-One may exploit the automatic grading system by hardcoding the expected result
-in the test cases --- that is, one can simply add if-then-else statements in the
-program to pass all the tests. But, we consider this attempt as cheating.
+The placing of ships is done manually.
+To place an ship of length n
+first a player enters a coordingate of the leftmost/bottommost cell of the ships( it depends on whether the ship that player wants to place is vertical of horizontal) 
+The board  of size n by n has coordinates (x,y) where x, y are integers between 1 and n. The leftmost bottom cell is (1,1)
+To enter the coordinate it's  enough to enter "xy". The player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
+The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
+if the input is invalid the program will ask to place a ship again. Otherwise the ship will be placed on board.
 
-If we detect any cheating attempt (including but not limited to the one above),
-we will immediately give you an F grade for the course, and report the case to
-the department.
+IMPORTANT: for 2Players mode each of two players share the screen must not look at each inputs and screen while the other makes a turn.
 
-## Solutions?
 
-There is no single correct solution to the problems. You can always come up with
-your own solution as long as it can pass the test cases. If you have any
-questions about the problems, feel free to write an issue in the
-[main](https://github.com/KAIST-CS220/CS220-Main) repository. But please do
-search the existing issues to see if your question has already been answered
-before writing a new one.
+The changes:
+1) 2 playes mode was added for more entertainment and variety
+2) For convinience the method for placing ship was slightly changed. First "xy entered where x, y are integers between 1 and n (n by n is the size of the box)

@@ -115,14 +115,14 @@ type Board (size: int,t: bool) =
     | _ -> true
 
   member __.IsMarke (m: int,n: int) =
-    if (m>size)||(n>size) then true
+    if (m>size)||(n>size)||(m=0)||(n=0) then true
     else
     match states.[m-1].[n-1] with
     | Marked -> true
     | _ -> false
     
   member __.Put (m: int,n: int) =
-    if (m>size)||(n>size ) then Error()
+    if (m>size)||(n>size )||(m=0)||(n=0) then Error()
     else
     match states.[m-1].[n-1] with
     | Marked -> Error() 

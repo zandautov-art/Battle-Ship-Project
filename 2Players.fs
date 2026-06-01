@@ -260,8 +260,8 @@ type Players (s: int) =
         printfn "[*] Game ended in draw.\n"
       | 1 -> 
         gameinterface.Print ()
-        printfn "[*] %s won the game!\n" ("computer" )
+        printfn "[*] %s won the game!\n" ("Player 2" )
       | _ -> 
         gameinterface.Print ()
-        printfn "[*] %s won the game!\n" ("player" )
+        printfn "[*] %s won the game!\n" ("Player 1" )
     

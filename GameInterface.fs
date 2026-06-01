@@ -162,50 +162,68 @@ type GameInterface (player: Board, opponent: Board) =
   member __.Read2 (player: Board) =
     player.PrintBoard ()
 
-    printfn "[*] Enter the coordinates of left/lower cell of the ship (length 2).\n"
+    printfn "[*] Enter the coordinates of leftmost/bottommost cell of the ship (length 2).\n"
     let i =  Console.ReadLine ()
-    printfn "[*] Enter the coordinates of right/upper cell of the ship (length 2).\n"
+    printfn "[*] Enter the direction of the ship"
+    printfn "1. vertical"
+    printfn "2. horizontal"
     let j =  Console.ReadLine ()
     try 
         let a = int( string i.[0])
         let b = int( string i.[1])
-        let c = int( string j.[0])
-        let d= int( string j.[1])
-        if ((a =c  && b + 1 = d)  || (a + 1 =c  && b = d)) && not (player.IsMarke (a,b))&& not (player.IsMarke (c,d)) then [|(a,b);(c,d)|]
+        let c = int( string j)
+        if (c=1) then
+            if not (player.IsMarke (a,b)) && not (player.IsMarke (a,b + 1))  then [|(a,b);(a,b+1)|]
+            else
+                    printfn "\n[*] Some of the cells can't be marked.\n"
+                    __.Read2 (player: Board)
+                
+
+        else if (c=2) then
+            if not (player.IsMarke (a,b)) && not (player.IsMarke (a+1,b ))  then [|(a,b);(a+1,b)|]
+            else
+                    printfn "\n[*] Some of the cells can't be marked.\n"
+                    __.Read2 (player: Board)
+             
         else
-        if(player.IsMarke (a,b))||(player.IsMarke (c,d)) then
-            printfn "\n[*] Some of the cells can't be marked.\n"
-            __.Read2 (player: Board)
-        else 
             printfn "\n[*] Invalid input is given.\n"
             __.Read2 (player: Board)
     with
         | _ ->
             printfn "\n[*] Invalid input is given.\n"
             __.Read2(player: Board)
+
+
+
   member __.Read3 (player: Board) =
     player.PrintBoard ()
 
-    printfn "[*] Enter the coordinates of left/lower cell of the ship (length 3).\n"
+    printfn "[*] Enter the coordinates of leftmost/bottommost cell of the ship (length 3).\n"
     let i =  Console.ReadLine ()
 
-    printfn "[*] Enter the coordinates of middle cell of the ship (length 3).\n"
+    printfn "[*] Enter the direction of the ship"
+    printfn "1. vertical"
+    printfn "2. horizontal"
     let j =  Console.ReadLine ()
-    printfn "[*] Enter the coordinates of right/upper cell of the ship (length 3).\n"
-    let k =  Console.ReadLine ()
+    
     try 
         let a = int( string i.[0])
         let b = int( string i.[1])
-        let c = int( string j.[0])
-        let d= int( string j.[1])
-        let e = int( string k.[0])
-        let f= int( string k.[1])
-        if ((a =c  && b + 1 = d&&c=e && d + 1 = f)  || (a + 1 =c  && b = d&& d = f && c+1 =e)) && not (player.IsMarke (a,b)) && not (player.IsMarke (c,d)) && not (player.IsMarke (e,f)) then [|(a,b);(c,d);(e,f)|]
+        let c = int( string j)
+        if (c=1) then
+            if not (player.IsMarke (a,b)) && not (player.IsMarke (a,b + 1)) && not (player.IsMarke (a,b + 2)) then [|(a,b);(a,b+1);(a,b+2)|]
+            else
+                    printfn "\n[*] Some of the cells can't be marked.\n"
+                    __.Read3 (player: Board)
+                
+
+        else if (c=2) then
+            if not (player.IsMarke (a,b)) && not (player.IsMarke (a+1,b )) && not (player.IsMarke (a+2,b )) then [|(a,b);(a+1,b);(a+2,b)|]
+            else
+                    printfn "\n[*] Some of the cells can't be marked.\n"
+                    __.Read3 (player: Board)
+                
         else
-        if(player.IsMarke (a,b))||(player.IsMarke (c,d)) ||(player.IsMarke (e,f))then
-            printfn "\n[*] Some of the cells can't be marked.\n"
-            __.Read3 (player: Board)
-        else 
             printfn "\n[*] Invalid input is given.\n"
             __.Read3 (player: Board)
     with
@@ -217,39 +235,37 @@ type GameInterface (player: Board, opponent: Board) =
   member __.Read4 (player: Board) =
     player.PrintBoard ()
 
-    printfn "[*] Enter the coordinates of left/lower cell of the ship (length 4).\n"
+    printfn "[*] Enter the coordinates of leftmost/bottommost cell of the ship (length 4).\n"
     let i =  Console.ReadLine ()
 
-    printfn "[*] Enter the coordinates of left/lower middle cell of the ship (length 4).\n"
+    printfn "[*] Enter the direction of the ship"
+    printfn "1. vertical"
+    printfn "2. horizontal"
     let j =  Console.ReadLine ()
-    printfn "[*] Enter the coordinates of right/upper middle cell of the ship (length 4).\n"
-    let r =  Console.ReadLine ()
-    printfn "[*] Enter the coordinates of right/upper cell of the ship (length 4).\n"
-    let k =  Console.ReadLine ()
     try 
         let a = int( string i.[0])
         let b = int( string i.[1])
-        let c = int( string j.[0])
-        let d= int( string j.[1])
+        let c = int( string j)
+        if (c=1) then
+            if not (player.IsMarke (a,b)) && not (player.IsMarke (a,b + 1)) && not (player.IsMarke (a,b+2)) && not (player.IsMarke (a,b + 3))  then [|(a,b);(a,b+1);(a,b+2);(a,b+3)|]
+            else
+                    printfn "\n[*] Some of the cells can't be marked.\n"
+                    __.Read4 (player: Board)
+                
 
-        let e = int( string r.[0])
-        let f= int( string r.[1])
-
-        let p = int( string k.[0])
-        let q= int( string k.[1])
-
-        if ((a =c  && b + 1 = d&&c=e && d + 1 = f&& e = p && f+1=q)  || (a + 1 =c  && b = d&& d = f && c+1 =e&& f= q&&e+1= p)) && not (player.IsMarke (p,q)) && not (player.IsMarke (a,b)) && not (player.IsMarke (c,d)) && not (player.IsMarke (e,f)) then [|(a,b);(c,d);(e,f);(p,q)|]
+        else if (c=2) then
+            if not (player.IsMarke (a,b)) && not (player.IsMarke (a+1,b ))&& not (player.IsMarke (a+2,b)) && not (player.IsMarke (a+3,b ))  then [|(a,b);(a+1,b);(a+2,b);(a+3,b)|]
+            else
+                    printfn "\n[*] Some of the cells can't be marked.\n"
+                    __.Read4 (player: Board)
+                
         else
-         if (player.IsMarke (a,b))||(player.IsMarke (c,d))||(player.IsMarke (e,f))||(player.IsMarke (p,q)) then
-            printfn "\n[*] Some of the cells can't be marked.\n"
-            __.Read4 (player: Board)
-         else 
             printfn "\n[*] Invalid input is given.\n"
             __.Read4 (player: Board)
     with
         | _ ->
             printfn "\n[*] Invalid input is given.\n"
-            __.Read4(player: Board)
+            __.Read4 (player: Board)
 
 
 
