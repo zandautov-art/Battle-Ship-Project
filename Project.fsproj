@@ -6,15 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Marker.fs" />
     <Compile Include="GameOption.fs" />
     <Compile Include="SlotState.fs" />
-    <Compile Include="BoardHelper.fs" />
     <Compile Include="Board.fs" />
-    <Compile Include="AI.fs" />
-    <Compile Include="Minimax.fs" />
     <Compile Include="GameInterface.fs" />
-    <Compile Include="TicTacToe.fs" />
+    <Compile Include="2Players.fs" />
+    <Compile Include="Computer.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

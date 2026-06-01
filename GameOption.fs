@@ -1,24 +1,20 @@
-namespace CS220
+namespace CS
 
 open System
 
-/// Available options.
+
 type GameOption =
-  |Six
-  |Seven
-  |Eight
+  |One
+  |Two
   |Exit
 module GameOption =
   let rec take () =
-    printfn "Choose board size"
-    printfn "1. 6 by 6"
-    printfn "2. 7 by 7"
-    printfn "3. 8 by 8"
-    printfn "Exit"
-    Console.Write "> " (* Show the prompt here. *)
+    printfn "Choose Mode"
+    printfn "1. vs Computer"
+    printfn "2. 2 players"
+    printfn "3. Exit"
     match Console.ReadLine () with
-    | "1" -> Six
-    | "2" -> Seven
-    | "3" -> Eight
-    | "4" -> Exit
+    | "1" -> One
+    | "2" -> Two
+    | "3" -> Exit
     | _ -> printfn "\n[*] Invalid option.\n"; take ()

@@ -1,10 +1,6 @@
-namespace CS220
-
-/// State of a slot.
+namespace CS
 type SlotState =
-  /// Empty.
   | EmptySlot
-  /// Marked.
   | Marked 
   |Hit
   |Dead
@@ -13,11 +9,11 @@ module SlotState =
   let toString = function
     | EmptySlot -> " "
     | Marked  -> " "
-    |Hit -> "O"
+    |Hit -> "•"
     |Dead -> "X"
   let toStringP = function
     | EmptySlot -> " "
-    | Marked  -> "&"
-    |Hit -> "O"
+    | Marked  -> "■"
+    |Hit -> "•"
     |Dead -> "X"
 
