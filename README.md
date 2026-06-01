@@ -28,7 +28,9 @@ If the cell belongs to the ship this cell is  destroyed, and the corresponding m
 
 The ships is destroyed only if all of its cells are destroyed.
 
-The one who destroys all opponents ships first is the winner.
+The one who destroys all opponents ships in fewer turns is the winner.
+
+if Both destroy each other ships in the same number of turns it will a draw
 
 In this projects there are two modes:
 Player vs Computer
@@ -62,6 +64,14 @@ The board  of size n by n has coordinates (x,y) where x, y are integers between 
 To enter the coordinate it's  enough to enter "xy". The player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
 The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
 if the input is invalid the program will ask to place a ship again. Otherwise the ship will be placed on board.
+
+On each turn the player see his own board on the left and the opponent's board on the right. Ships on opponents board will be unvisible.
+
+"X" denotes a cell that belong to some ship and was destroyed
+"." denotes a miss(the attacked cell which doesn't belong to any ship)
+"■" denotes a cell of player's ship and wasn't attacked
+
+
 
 IMPORTANT: for 2Players mode each of two players share the screen must not look at each inputs and screen while the other makes a turn.
 
