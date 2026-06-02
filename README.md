@@ -59,24 +59,25 @@ For 9 by 9 board each player places:
 
 The placing of ships is done manually.
 To place an ship of length n
-first a player enters a coordingate of the leftmost/bottommost cell of the ships( it depends on whether the ship that player wants to place is vertical of horizontal) 
+first a player enters a coordingate of the leftmost/bottommost cell of the ship( it depends on whether the ship that player wants to place is vertical of horizontal) 
 The board  of size n by n has coordinates (x,y) where x, y are integers between 1 and n. The leftmost bottom cell is (1,1)
-To enter the coordinate it's  enough to enter "xy". For example input "34" is valid while input "(4,5)" is invalid.the first is x coordinate second is y
-The player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
-The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
-if the input is invalid the program will ask to place a ship again. Otherwise the ship will be placed on board.
+To enter the coordinate it's  enough to enter "xy". For example input "34" is valid while input "(4,5)" is invalid. For input: the first number is a x coordinate second number is y coordinate.
+Then the player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
+After, The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
+if the input is invalid the program will ask to place a ship again. Otherwise the ship will be placed on the board.
+After all the ships are placed the game starts.
 
-On each turn the player see his own board on the left and the opponent's board on the right. Ships on opponents board will be unvisible.
+On each turn the player see his own board on the left and the opponent's board on the right. Ships on opponent's board will be unvisible.
 
 "X" denotes a cell that belong to some ship and was destroyed
 "." denotes a miss(the attacked cell which doesn't belong to any ship)
 "■" denotes a cell of player's ship and wasn't attacked
 
-To attacj opponents board you need to enter coordinates of the cell to be hit. For example input "34" is valid while input "(4,5)" is invalid. the first is x coordinate second is y
+To attack opponents board you need to enter coordinates of the cell to be hit. For example input "34" is valid while input "(4,5)" is invalid. For input: the first number is a x coordinate second number is y coordinate. 
 
-IMPORTANT: for 2Players mode each of two players share the screen must not look at each inputs and screen while the other makes a turn.
+IMPORTANT: for 2Players mode each of two players share the screen must not look at each other's inputs and screen while the other player makes a turn.
 
 
 The changes:
 1) 2 playes mode was added for more entertainment and variety
-2) For convinience the method for placing ship was slightly changed. First "xy entered where x, y are integers between 1 and n (n by n is the size of the box)
+2) For convinience the method for placing ship was slightly changed. First "xy" are entered where x, y are integers between 1 and n (n by n is the size of the box). After player seperately enters the direction of the ship. This approach is a little more convinient.
