@@ -64,7 +64,6 @@ First, a player enters a coordingate of the leftmost/bottommost cell of the ship
 The board  of size n by n has coordinates (x,y) where x, y are integers between 1 and n. The leftmost bottom cell is (1,1)
 
 1) To enter the coordinate it's  enough to enter "xy". For example input "34" is valid while input "(4,5)" is invalid. For input: the first number is a x coordinate second number is a y coordinate.
-2) 
 Then the player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
 
 2) After, The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
