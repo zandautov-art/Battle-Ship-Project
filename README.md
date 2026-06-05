@@ -59,11 +59,15 @@ For 9 by 9 board each player places:
 
 The placing of ships is done manually.
 To place an ship of length n
-first a player enters a coordingate of the leftmost/bottommost cell of the ship( it depends on whether the ship that player wants to place is vertical of horizontal) 
+First, a player enters a coordingate of the leftmost/bottommost cell of the ship( it depends on whether the ship that player wants to place is vertical of horizontal) 
+
 The board  of size n by n has coordinates (x,y) where x, y are integers between 1 and n. The leftmost bottom cell is (1,1)
-To enter the coordinate it's  enough to enter "xy". For example input "34" is valid while input "(4,5)" is invalid. For input: the first number is a x coordinate second number is y coordinate.
+
+1) To enter the coordinate it's  enough to enter "xy". For example input "34" is valid while input "(4,5)" is invalid. For input: the first number is a x coordinate second number is a y coordinate.
+2) 
 Then the player presses "enter" button.(in case input has more than 2 characters the first 2 characters will be taken as input)
-After, The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
+
+2) After, The player indicates the direction of the ship (vertical or horizontal). Then player presses "enter" again.
 if the input is invalid the program will ask to place a ship again. Otherwise the ship will be placed on the board.
 After all the ships are placed the game starts.
 
@@ -81,3 +85,7 @@ IMPORTANT: for 2Players mode each of two players share the screen must not look 
 The changes:
 1) 2 playes mode was added for more entertainment and variety
 2) For convinience the method for placing ship was slightly changed. First "xy" are entered where x, y are integers between 1 and n (n by n is the size of the box). After player seperately enters the direction of the ship. This approach is a little more convinient.
+
+LLM usage:
+1) the code responsible for printing of board of sizes 6by6, 7by7, 9by9 is written manually without any "for", "while" functions. Because of that writing that code would take a lot of time, so I asked LLM to do that
+2) LLM was used for explanation of the concepts and built-in functions/types of Fsharp(like List.init, namespaces, 2d Arrays, etc)
