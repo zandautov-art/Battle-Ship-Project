@@ -9,6 +9,13 @@ Overview: This project is a command-line battleship game where the
 user plays against an enemy. Each player has his own board with
 his ships. The goal is to destroy all ships on opponent's board.
 
+To run the game, follow these instructions:
+
+Open your terminal or command prompt. Ensure it is quite large so the game can be rendered correctly.
+Navigate to the root directory of the repository (where the .fsproj file is located).
+Execute the following command:
+dotnet run
+Follow the on-screen instructions to play the game!
 
 Rules: The game is played by 2 people.
 Each of the Two players have their own board.
